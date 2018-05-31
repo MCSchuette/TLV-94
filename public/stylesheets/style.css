@@ -1,0 +1,171 @@
+html { 
+  background: url(background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  padding-top: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: black;
+  }
+
+form{
+margin: 5px;
+}
+
+#ExtraH2{
+padding-top:10px;
+}
+
+div#textCheckBox{
+    width: 99.3%;
+    padding: 5px;
+    margin: 4px 0;
+    display: inline-block;
+    text-align: justify;
+    color:rgb(2, 67, 0);
+    font-size: 15px;
+    font-weight:bold;
+    -webkit-box-shadow: 3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    background:rgb(2, 180, 0); 
+    border:0 none;
+}
+
+h2 {
+    color: rgb(2, 67, 0);
+    font-size: 30px;
+    text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.75);
+    text-align:center;
+    padding:0px;
+    margin-bottom:10px;
+    margin-top:0px;
+}
+h3 {
+    color: rgb(2, 67, 0);
+    font-size: 40px;
+    text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.75);
+    text-align:center;
+    padding:0px;
+    margin-bottom:0px;
+}
+h4 {
+    color: rgb(2, 67, 0);
+    font-size: 20px;
+    text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.75);
+    text-align:center;
+    margin-bottom:5px;
+}
+#Navigation{
+    padding: 10px 24px;
+    color:rgb(2, 67, 0);
+    font-size: 15px;
+    font-weight:bold;
+    -webkit-box-shadow: 3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    background:rgb(2, 180, 0); 
+    border:0 none;
+    cursor:pointer;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#floatRight{
+    float: right;
+    padding: 10px 24px;
+    color:rgb(2, 67, 0);
+    font-size: 15px;
+    font-weight:bold;
+    -webkit-box-shadow: 3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         3px 3px 2px 0px rgba(50, 50, 50, 0.75);
+    background:rgb(2, 180, 0); 
+    border:0 none;
+    cursor:pointer;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#Navigation:hover{
+  background:rgb(2,240,0);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+ padding: 5px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#ZweierreiheShort {
+    width: 30% !important;
+    float:left;
+}
+
+#ZweierreiheLong {
+    width: 70% !important;
+    float:left;
+}
+
+table { 
+    width: 100%;
+    padding: 12px 20px;
+color: #333;
+font-family: Helvetica, Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+border-collapse: collapse; 
+border-spacing: 0; 
+overflow: auto;
+-webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+td, th { 
+border: 1px solid transparent; /* No more visible border */
+height: 30px; 
+transition: all 0.3s;  /* Simple transition for hover effect */
+}
+
+th {
+background: #DFDFDF;  /* Darken header a bit */
+font-weight: bold;
+}
+
+td {
+background: #FAFAFA;
+text-align: center;
+}
+
+/* Cells in even rows (2,4,6...) are one color */ 
+tr:nth-child(even) td { background: #F1F1F1; }   
+
+/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */ 
+tr:nth-child(odd) td { background: #FEFEFE; }  
+
+tr:hover td { background: #666; color: #FFF; } /* Hover cell effect! */
+
+

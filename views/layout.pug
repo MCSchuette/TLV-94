@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title TLV Stadionfest
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript').
+      function validateForm(){
+        var form = document.getElementById("register"), inputs = form.getElementsByTagName("input"), input = null, flag = true;
+        for(var i = 0, len = inputs.length; i < len; i++) {
+          input = inputs[i];
+          if(input.getAttribute('type') === 'checkbox'){
+            if(input.name === "Datenschutz" && !input.checked) alert("Aus rechtlichen Gründen benötigen wir die Online Anmeldung ihre Einwilligung zu unseren Datenschutzhinweisen. Bitte willigen Sie ein.");
+          }else{
+            if(input.name != "Organisation" && input.name != "SixthPlayer" && input.name != "SixthPlayerAge" ){
+              if(!input.value) { //Check if contains Value
+                flag = false;
+                input.focus();
+                alert("Please fill all the inputs");
+                break;
+              }
+            }
+            // Check if Number or Not
+            if((input.name.indexOf("Age") || input.name.indexOf("Born")) !== -1 && isNaN(input.value)){
+              flag = false;
+              input.focus();
+              alert(input.value + " is not a Number!");
+              break;
+            }
+          }
+        }
+       return(flag);
+      }
+      $(".ShowAnmeldung").click(function () {
+        $ShowAnmeldung = $(this);
+        $Anmeldung = $ShowAnmeldung.next();
+        $Anmeldung.slideToggle(500, function () {
+          $ShowAnmeldung.text(function () {
+            return $Anmeldung.is(":visible") ? "Collapse" : "Expand";
+          });
+        });
+
+      });
+  body
+    h3 Tangermünder Leichtathletikverein 1994 - 19. Stadionfest 
+    h4 Wir sagen nicht, dass es einfach wird. Wir sagen, dass es sich lohnen wird!
+    block content

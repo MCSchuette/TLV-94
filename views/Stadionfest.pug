@@ -1,0 +1,168 @@
+extends layout
+
+block content
+  ul
+    form(name ="switchSelection", action="/switchSelection?Selection=3_Kampf", method="post", enctype="multipart/form-data")
+      button(type="submit", id="Navigation") 3-Kampf 
+    form(name ="switchSelection", action="/switchSelection?Selection=Staffel", method="post", enctype="multipart/form-data")
+      button(type="submit", id="Navigation") Schwedenstaffel
+    form(name ="switchSelection", action="/switchSelection?Selection=Paarzeitlauf", method="post", enctype="multipart/form-data")
+      button(type="submit", id="Navigation") Paarzeitlauf 
+    form(name ="switchSelection", action="/switchSelection?Selection=Volleyball", method="post", enctype="multipart/form-data")
+      button(type="submit", id="Navigation") Volleyball
+  br
+  if selected == "3_Kampf"
+    h2 Anmeldung 3-Kampf
+  else if selected == "Staffel"
+    h2 Anmeldung Schwedenstaffel
+  else
+    h2 Anmeldung #{selected}
+  form(id="register",name ="register", action="/addObject?RequestForRegistration="+selected, method="post", enctype="multipart/form-data",onsubmit="return validateForm();") 
+    if selected == "3_Kampf"
+      input(type="text", placeholder="Vorname", name="Vorname", required)
+      input(type="text", placeholder="Nachname", name="Name", required)
+      input(type="text", placeholder="Jahrgang", name="Born", required)
+      select(name = "Gender") 
+        option Männlich
+        option Weiblich
+      input(type="text", placeholder="Verein(optional)", name="Organisation")
+      input(type="text", placeholder="Email", name="Email", required)
+      div#textCheckBox
+        input(type="checkbox", name="DLV_Sportabzeichen", checked) 
+        | Ich möchte mir ein Sportabzeichen des DLV erkämpfen!
+    else if selected == "Staffel"
+      input#ZweierreiheLong(type="text", placeholder="Name des Ersten Läufers", name="FirstRunner", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="FirstRunnerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Zweiten Läufers", name="SecondRunner", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="SecondRunnerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Dritten Läufers", name="ThirdRunner", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="ThirdRunnerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Vierten Läufers", name="FourthRunner", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="FourthRunnerAge", required)
+      select(name = "Gender", required) 
+        option Männlich
+        option Weiblich
+        option Gemischt
+      input(type="text", placeholder="Verein(optional)", name="Organisation")
+      input(type="text", placeholder="Email", name="Email", required)
+    else if selected == "Paarzeitlauf"
+      input#ZweierreiheLong(type="text", placeholder="Name des Ersten Läufers", name="FirstRunner", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="FirstRunnerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Zweiten Läufers", name="SecondRunner", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="SecondRunnerAge", required)
+      select(name = "Gender", required) 
+        option Männlich
+        option Weiblich
+        option Gemischt
+      input(type="text", placeholder="Verein(optional)", name="Organisation")
+      input(type="text", placeholder="Email", name="Email", required)
+    else if selected == "Paarzeitfahren"
+      input(type="text", placeholder="Name des Ersten Fahrers", name="FirstDriver", required)
+      input(type="text", placeholder="Alter des Ersten Fahrers", name="FirstDriverAge", required)
+      input(type="text", placeholder="Name des Zweiten Fahrers", name="SecondDriver", required)
+      input(type="text", placeholder="Alter des Zweiten Fahrers", name="SecondDriverAge", required)
+      select(name = "Gender", required) 
+        option Männlich
+        option Weiblich
+        option Gemischt
+      input(type="text", placeholder="Verein(optional)", name="Organisation")
+      input(type="text", placeholder="Email", name="Email", required)
+    else if selected == "Volleyball"
+      input(type="text", placeholder="Teamname", name="TeamName", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Ersten Spielers", name="FirstPlayer", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="FirstPlayerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Zweiten Spielers", name="SecondPlayer", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="SecondPlayerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Dritten Spielers", name="ThirdPlayer", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="ThirdPlayerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Vierten Spielers", name="FourthPlayer", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="FourthPlayerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Fünften Spielers", name="FifthPlayer", required)
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="FifthPlayerAge", required)
+      input#ZweierreiheLong(type="text", placeholder="Name des Sechsten Spielers(Optional)", name="SixthPlayer")
+      input#ZweierreiheShort(type="text", placeholder="Alter", name="SixthPlayerAge", required)
+      input(type="text", placeholder="Verein(optional)", name="Organisation")
+      input(type="text", placeholder="Email", name="Email", required)
+    b
+    div#textCheckBox
+      input(type="checkbox", name="Datenschutz", required) 
+      | Ich habe die Datenschutzvereinbarung, welche am Ende der Seite verlinkt ist gelesen und akzeptiere die enthaltenden Bestimmungen. Ich bin damit einverstanden und gebe meine ausdrückliche Erlaubnis, dass meine Formulardaten zur Ausführung der Stadionfeste des TLV und ausschließlich zur Ausführung der Stadionfeste elektronisch weiterverarbeitet und bis zum 01. September 2019 gespeichert werden. Dies beinhaltet Speicherung in einer Datenbank, Benachrichtigungen beim Ausfall des Stadionfestes, Ausrichtung des Wettkampfes, Ergebnisübermittlung und Benachrichtung über zukünftig anstehende Stadionfeste. Weiterhin bin ich mit der Veröffentlichung meines Namens, meiner Altersklasse, meines Geschlechtes, sowie meines Vereins auf dieser Webseite einverstanden. Alle anderen Daten werden nicht an Dritte weitergegeben und ein Widerruf dieser Einwilligung ist jederzeit via E-Mail an: info@tlv-94.de möglich! 
+    ul
+      button(type="submit", id="Navigation") Anmelden
+  br
+  if selected == "3_Kampf"
+    h2(id="ExtraH2") Melde dich an und kämpfe beim 3-Kampf gegen folgende Teilnehmer!
+  else if selected == "Staffel"
+    h2(id="ExtraH2") Meldet euch an und kämpft beim Staffellauf gegen folgende Teilnehmer!
+  else
+     h2(id="ExtraH2") Meldet euch an und kämpft beim #{selected}  gegen folgende Teilnehmer! 
+  table
+      thead
+       tr.head
+          else if selected == "3_Kampf"
+            th Name
+            th Geschlecht
+            th Altersklasse
+            th Verein
+          else if selected == "Staffel"
+            th Namen
+            th Geschlecht
+            th Verein
+          else if selected == "Paarzeitlauf"
+            th Namen
+            th Geschlecht
+            th Altersklasse
+            th Verein
+          else if selected == "Volleyball"
+            th Teamname
+            th Spielernamen
+            th Verein
+      tbody 
+        -if (registratedUsers)
+          each user, key in registratedUsers
+            tr(class=(i % 2 == 0) ? 'odd' : 'even')
+              if selected == "Paarzeitfahren"
+                if user.Discipline == "Paarzeitfahren" 
+                  td #{user.FirstDriver}, #{user.SecondDriver}
+                  td #{user.Gender}
+                  if user.Age < 60
+                    td Kleiner 60
+                  else if user.Age > 91
+                    td Größer 91
+                  else
+                    td 61 bis 90
+                  td #{user.Organisation}
+              else if selected == "3_Kampf"
+                if user.Discipline == "3_Kampf" 
+                  td #{user.Vorname} #{user.Name}  
+                  td #{user.Gender}
+                  td #{user.Born}
+                  td #{user.Organisation}
+              else if selected == "Staffel"
+                if user.Discipline == "Staffel" 
+                  td #{user.FirstRunner}, #{user.SecondRunner}, #{user.ThirdRunner}, #{user.FourthRunner}
+                  td #{user.Gender}
+                  td #{user.Organisation}
+              else if selected == "Paarzeitlauf"
+                if user.Discipline == "Paarzeitlauf"
+                  td #{user.FirstRunner}, #{user.SecondRunner}
+                  td #{user.Gender}
+                  if user.Gender == "Gemischt"
+                    td Keine AK
+                  else if user.Age <= 60
+                    td Unter 60
+                  else if user.Age > 60 && user.Age <= 90
+                    td 61 - 90
+                  else if user.Age > 90 && user.Age <= 120 
+                    td 91 - 120
+                  else
+                    td Über 120
+                  td #{user.Organisation}
+              else if selected == "Volleyball"
+                if user.Discipline == "Volleyball"
+                  td #{user.TeamName}
+                  td #{user.FirstPlayer}, #{user.SecondPlayer}, #{user.ThirdPlayer}, #{user.FourthPlayer}, #{user.FifthPlayer}, #{user.SixthPlayer}
+                  td #{user.Organisation}
+  form(name ="Impressum", action="http://www.tlv-94.de/impressum/", method="get", enctype="multipart/form-data")
+    button(type="submit", id="floatRight") Impressum
+
