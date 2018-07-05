@@ -28,8 +28,8 @@ block content
       input(type="text", placeholder="Verein(optional)", name="Organisation")
       input(type="text", placeholder="Email", name="Email", required)
       div#textCheckBox
-        input(type="checkbox", name="DLV_Sportabzeichen", checked) 
-        | Ich möchte mir ein Sportabzeichen des DLV erkämpfen!
+        input(type="checkbox", name="DLV_Sportabzeichen") 
+        | Ich möchte mir ein Sportabzeichen des DLV erkämpfen! (Bitte gültigen Schwimmnachweis mitbringen)
     else if selected == "Staffel"
       input#ZweierreiheLong(type="text", placeholder="Name des Ersten Läufers", name="FirstRunner", required)
       input#ZweierreiheShort(type="text", placeholder="Alter", name="FirstRunnerAge", required)
